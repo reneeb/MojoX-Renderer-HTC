@@ -2,7 +2,9 @@ Changes
 MANIFEST
 Makefile.PL
 README
+
 lib/MojoX/Renderer/HTC.pm
+
 t/00-load.t
 t/pod-coverage.t
 t/pod.t

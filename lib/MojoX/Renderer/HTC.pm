@@ -3,9 +3,11 @@ package MojoX::Renderer::HTC;
 use warnings;
 use strict;
 
+use HTML::Template::Compiled;
+
 =head1 NAME
 
-MojoX::Renderer::HTC - The great new MojoX::Renderer::HTC!
+MojoX::Renderer::HTC - HTML::Template::Compiled renderer for Mojo
 
 =head1 VERSION
 
@@ -18,34 +20,44 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+  use MojoX::Renderer::HTC;
 
-Perhaps a little code snippet.
+  sub startup {
+    my $self = shift;
 
-    use MojoX::Renderer::HTC;
+    $self->types->type(tmpl => 'text/html');
 
-    my $foo = MojoX::Renderer::HTC->new();
-    ...
+    my $render = MojoX::Renderer::HTC->build(
+        %html_template_compiled_params,
+    );
 
-=head1 EXPORT
+    $self->renderer->add_handler( tmpl => $render );
+  }
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+=head1 METHODS
 
-=head1 FUNCTIONS
-
-=head2 function1
-
-=cut
-
-sub function1 {
-}
-
-=head2 function2
+=head2 build
 
 =cut
 
-sub function2 {
+sub build {
+    my ($self, %args) = @_;
+    
+    return sub {
+        my ($mojo, $ctx, $output) = @_;
+        
+        my $stash = $ctx->stash;
+        my $template = HTML::Template::Compiled->new(
+            %args,
+            filename => $stash->{template},
+        );
+        
+        $template->param(
+            %$stash,
+        );
+        
+        $$output = $template->output;
+    }
 }
 
 =head1 AUTHOR
