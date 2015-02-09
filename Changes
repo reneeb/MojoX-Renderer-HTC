@@ -1,4 +1,10 @@
 Revision history for MojoX::Renderer::HTC
+=========================================
+
+0.02    2015-02-09
+
+  [MISC]
+  * Added metaresources to dist.ini
 
 0.01    2012-12-09
         First version, released on an unsuspecting world.
