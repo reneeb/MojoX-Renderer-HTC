@@ -72,3 +72,7 @@ In the app:
 
 =head2 build
 
+=head1 CONTRIBUTORS
+
+ * Tina Müller (tinita) - major rewrite for version 0.03
+
