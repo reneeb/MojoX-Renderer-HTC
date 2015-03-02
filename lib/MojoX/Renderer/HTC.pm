@@ -14,15 +14,18 @@ our $VERSION = '0.02';
 sub build {
     my $self = shift->SUPER::new(@_);
     my %args = @_;
+
     $self->htc_args(\%args);
+
     return sub { $self->_render(@_) }
 }
 
 sub _render {
     my ($self, $r, $c, $output, $options) = @_;
 
-    my $name = $r->template_name($options);
+    my $name  = $r->template_name($options);
     my $stash = $c->stash;
+
     my $template = HTML::Template::Compiled->new(
         %{ $self->htc_args },
         filename => $name,
