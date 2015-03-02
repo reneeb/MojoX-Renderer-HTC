@@ -1,6 +1,14 @@
 Revision history for MojoX::Renderer::HTC
 =========================================
 
+0.03    2015-03-02
+
+  [IMPROVEMENTS]
+  * Rewrite of this plugin (thanks to Tina Müller - tinita)
+
+  [TESTS]
+  * add renderer tests
+
 0.02    2015-02-09
 
   [MISC]
