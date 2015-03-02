@@ -9,7 +9,7 @@ __PACKAGE__->attr( htc_args => sub { return {} });
 
 # ABSTRACT: HTML::Template::Compiled renderer for Mojo
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub build {
     my $self = shift->SUPER::new(@_);
@@ -49,16 +49,16 @@ __END__
 =head1 SYNOPSIS
 
   use MojoX::Renderer::HTC;
-
+ 
   sub startup {
     my $self = shift;
-
+ 
     $self->types->type(tmpl => 'text/html');
-
+ 
     my $render = MojoX::Renderer::HTC->build(
         %html_template_compiled_params,
     );
-
+ 
     $self->renderer->add_handler( tmpl => $render );
   }
 
@@ -74,6 +74,18 @@ In the app:
 =head1 METHODS
 
 =head2 build
+
+Build a new renderer that can be used to render output in the Mojolicious application.
+
+    my $render = MojoX::Renderer::HTC->build(
+      case_sensitive => 1,
+      default_escape => 'HTML',
+      use_query      => 1,
+    );
+  
+    $self->renderer->add_handler( tmpl => $render );
+
+For all parameters that L<HTML::Template::Compiled> accepts, see L<OPTIONS|HTML::Template::Compiled#OPTIONS>.
 
 =head1 CONTRIBUTORS
 
