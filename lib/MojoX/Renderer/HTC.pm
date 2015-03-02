@@ -43,14 +43,6 @@ __END__
 
 =encoding UTF-8
 
-=head1 NAME
-
-MojoX::Renderer::HTC - HTML::Template::Compiled renderer for Mojo
-
-=head1 VERSION
-
-version 0.02
-
 =head1 SYNOPSIS
 
   use MojoX::Renderer::HTC;
@@ -80,16 +72,3 @@ In the app:
 
 =head2 build
 
-=head1 AUTHOR
-
-Renee Baecker <reneeb@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is Copyright (c) 2015 by Renee Baecker.
-
-This is free software, licensed under:
-
-  The Artistic License 2.0 (GPL Compatible)
-
-=cut
